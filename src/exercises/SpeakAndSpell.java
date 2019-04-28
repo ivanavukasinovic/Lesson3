@@ -1,32 +1,50 @@
 package exercises;
 
-import voce.SpeechSynthesizer;
+import javax.swing.JOptionPane;
 
-/**
- * The first Speak & Spell was introduced at the summer Consumer Electronics
- * Show in June 1978, making it one of the earliest hand-held electronic devices
- * with a visual display to use interchangeable game cartridges. 
- * It was my favorite game as a kid.
- * 
- * https://www.youtube.com/watch?v=qM8FcN0aAvU
- **/
+import voce.SpeechSynthesizer;
 
 public class SpeakAndSpell {
 
 	public static void main(String[] args) {
-		// 1. Use the speak method to say the word. "e.g. spell mandlebrot"
 
-		// 2. Catch the user's answer in a String
+		int score = 0;
+		for (int i = 0; i < 3; i++) {
 
-		// 3. If the user spelled the word correctly, speak "correct"
+			speak("spell conscious");
+			String answer1 = JOptionPane.showInputDialog("Enter the answer:");
+			i++;
+			if (answer1.equals("conscious")) {
+				speak("correct");
+				score++;
+			} else {
+				speak("wrong");
+			}
 
-		// 4. Otherwise say "wrong"
+			speak("spell fluorescent");
+			String answer2 = JOptionPane.showInputDialog("Enter the answer:");
+			i++;
+			if (answer2.equals("fluorescent")) {
+				speak("correct");
+				score++;
+			} else {
+				speak("wrong");
+			}
 
-		// 5. Repeat the process for other words
-		
-		// 6. Calculate the user's score and give it to them at the end of the game 
-		
-		
+			speak("spell chocolate");
+			String answer3 = JOptionPane.showInputDialog("Enter the answer:");
+			i++;
+			if (answer3.equals("chocolate")) {
+				speak("correct");
+				score++;
+			} else {
+				speak("wrong");
+			}
+		}
+
+		speak("Your score is: " + score);
+		JOptionPane.showMessageDialog(null, "Your score is: " + score);
+
 	}
 
 	static void speak(String words) {
